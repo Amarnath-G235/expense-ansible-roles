@@ -1,9 +1,11 @@
 plugin: amazon.aws.aws_ec2
+vars_files:
+  - /var/expense/credentials_nginx.yaml
 regions:
 - us-east-1
 filters:
   # This selects only running instances with tag `Environment` tag set to `nginx`.
-  tag:Name: backend
+  tag:Name: nginx 
   instance-state-name : running
 hostnames:
   - private-ip-address
